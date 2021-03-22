@@ -1,0 +1,34 @@
+<div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)">
+        <div class="form-group">
+            <label for="email">eMail</label>
+            <input type="text" class="form-control" id="email" formControlName="email" placeholder="Enter your email id">
+
+            <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                <div *ngIf="email.errors.required">
+                    <li>eMail is required...</li>
+                </div>
+
+                <div *ngIf="email.errors.pattern">
+                    <li>Please enter a valid email id...</li>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password">
+
+            <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                <div *ngIf="password.errors.required">
+                    <li>Password is required...</li>
+                </div>
+                <div *ngIf="password.errors.minlength">
+                    <li>Min Length should be {{ password.errors.minlength.requiredLength }}</li>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary btn-sm col" [disabled]="loginForm.invalid">Submit</button>
+    </form>
+</div>

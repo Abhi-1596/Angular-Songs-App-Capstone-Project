@@ -1,0 +1,17 @@
+#carouselExampleCaptions {
+    margin-top: 50px;
+}
+
+img {
+    height: 400px;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
+.carousel-inner {
+    border-radius: 10px;
+}

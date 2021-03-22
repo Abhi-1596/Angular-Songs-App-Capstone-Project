@@ -1,0 +1,15 @@
+.jumbotron {
+    margin-top: 100px;
+}
+
+#firstDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bodyDiv {
+    clear: both;
+    margin: 10px;
+    text-align: center;
+}

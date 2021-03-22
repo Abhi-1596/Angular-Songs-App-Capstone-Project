@@ -1,0 +1,104 @@
+<div class="container">
+
+    <form [formGroup]="registrationForm" (ngSubmit)="submit(registrationForm)">
+        <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstname" placeholder="Please enter First Name"
+                formControlName="firstname" [value]="firstname.value | titlecase">
+
+            <div class="alert alert-danger" *ngIf="firstname.touched && firstname.invalid">
+                <div *ngIf="firstname.errors.required">
+                    <li>First Name is required...</li>
+                </div>
+                <div *ngIf="firstname.errors.minlength">
+                    <li>Min Length should be {{ firstname.errors.minlength.requiredLength }}</li>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="lastname" placeholder="Please enter Last Name"
+                formControlName="lastname" [value]="lastname.value | titlecase">
+
+            <div class="alert alert-danger" *ngIf="lastname.touched && lastname.invalid">
+                <div *ngIf="lastname.errors.required">
+                    <li>Last Name is required...</li>
+                </div>
+                <div *ngIf="lastname.errors.minlength">
+                    <li>Min Length should be {{ lastname.errors.minlength.requiredLength }}</li>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">eMail</label>
+            <input type="text" class="form-control" id="email" placeholder="Please enter eMail Id"
+                formControlName="email">
+
+            <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                <div *ngIf="email.errors.required">
+                    <li>eMail is required...</li>
+                </div>
+
+                <div *ngIf="email.errors.pattern">
+                    <li>Please enter a valid email id...</li>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Please enter a Password"
+                formControlName="password">
+
+            <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                <div *ngIf="password.errors.required">
+                    <li>Password is required...</li>
+                </div>
+                <div *ngIf="password.errors.minlength">
+                    <li>Min Length should be {{ password.errors.minlength.requiredLength }}</li>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="cnf_password">Confirm Password</label>
+            <input type="password" class="form-control" id="cnf_password" placeholder="Please enter re-enter the Password"
+                formControlName="cnf_password">
+
+            <div class="alert alert-danger" *ngIf="cnf_password.touched && cnf_password.invalid">
+                <div *ngIf="cnf_password.errors.required">
+                    <li>Confirm Password is required...</li>
+                </div>
+                <div *ngIf="cnf_password.errors.minlength">
+                    <li>Min Length should be {{ cnf_password.errors.minlength.requiredLength }}</li>
+                </div>
+                <div *ngIf="cnf_password.errors.confirmedValidator">
+                    <li>Password & Confirm Password doesn't match</li>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" id="dob" formControlName="dob">
+
+            <div class="alert alert-danger" *ngIf="dob.touched && dob.invalid">
+                <div *ngIf="dob.errors.required">
+                    <li>Date of Birth is required...</li>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" class="form-control" formControlName="gender">
+                <option [ngValue]="null" selected disabled hidden>Please select an option</option>
+                <option [ngValue]="item" *ngFor="let item of genders">{{ item }}</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary btn-sm col" [disabled]="registrationForm.invalid">Submit</button>
+    </form>
+</div>

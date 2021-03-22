@@ -1,0 +1,50 @@
+<div class="container">
+
+    <div>
+        <div class="row row-cols-1 row-cols-md-4">
+            <div class="col mb-4" *ngFor="let item of songsList">
+                <div class="card">
+                    <img [src]="item.album_pic" class="card-img-top rounded img-thumbnail img-fluid"
+                        alt="{{ item.album }} / {{ item.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title text-center font-italic">{{ item.name }}</h5>
+                        <p class="card-text">
+                            <button class="btn btn-outline-primary btn-sm col" (click)="viewDeatils(item)">
+                                Click me to view song detail
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div>
+        <div class="text-center">
+            <div class="card">
+                <div class="card-header row">
+                    <div class="col-6">Song Id</div>
+                    <div class="col-6">Songs Name</div>
+                </div>
+                <div class="card-body row" *ngFor="let item of songsList">
+                    <div class="col-6">
+                        <ul class="list-group list-group-flush active">
+                            <li class="list-group-item list-group-item-action">
+                                {{ item.id }}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <ul class="list-group list-group-flush active">
+                            <li class="list-group-item list-group-item-action text-justify">
+                                <a [routerLink]="['/songs_list', item.id]">
+                                    {{ item.name }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

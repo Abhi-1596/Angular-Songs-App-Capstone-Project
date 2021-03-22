@@ -1,0 +1,14 @@
+.container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.card-header {
+    padding: 7px 0px;
+    margin: 0px;
+}
+
+.card-body {
+    padding: 0px 10px;
+    margin: 0px;
+}

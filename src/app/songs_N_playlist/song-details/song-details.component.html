@@ -1,0 +1,62 @@
+<button class="btn btn-outline-primary btn-sm float-right" (click)="back()">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    &nbsp;
+    Back
+</button>
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-4">Song Id</div>
+            <div class="col-sm-2">--></div>
+            <div class="col-sm-6">{{ songsList[_id - 1].id }}</div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <img [src]="songsList[_id - 1].album_pic"
+                    class="card-img-top rounded img-thumbnail img-fluid rounded float-left"
+                    alt="{{ songsList[_id - 1].album }} / {{ songsList[_id - 1].name }}">
+            </div>
+
+            <div class="col-sm-6 text-center">
+                <song-player [youtube_embed_id]="this.songsList[_id - 1].youtube_Id_URL"></song-player>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-sm-4">Song Name</div>
+            <div class="col-sm-2">--></div>
+            <div class="col-sm-6">{{ songsList[_id - 1].name }}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">Song Artist</div>
+            <div class="col-sm-2">--></div>
+            <div class="col-sm-6">{{ songsList[_id - 1].artist }}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">Album Name</div>
+            <div class="col-sm-2">--></div>
+            <div class="col-sm-6">{{ songsList[_id - 1].album }}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">Year of Release </div>
+            <div class="col-sm-2">--></div>
+            <div class="col-sm-6">{{ songsList[_id - 1].released }}</div>
+        </div>
+
+    </div>
+
+    <button class="btn btn-outline-primary btn-sm float-left" (click)="previous(_id)" [hidden]="_id == 1">
+        Previous Song
+    </button>
+
+    <button class="btn btn-outline-primary btn-sm float-right" (click)="next(_id)" [hidden]="_id == songsList.length">
+        Next Song
+    </button>
+</div>

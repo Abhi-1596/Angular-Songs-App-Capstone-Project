@@ -1,0 +1,33 @@
+<button class="btn btn-outline-primary btn-sm float-right" (click)="back()">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+    &nbsp;
+    Back
+</button>
+
+<div class="container">
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-4">Playlist Id</div>
+            <div class="col-sm-2">--></div>
+            <div class="col-sm-6">{{ playLists[_id - 1].playlist_id }}</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">Playlist Name</div>
+            <div class="col-sm-2">--></div>
+            <div class="col-sm-6">{{ playLists[_id - 1].playlist_name }}</div>
+        </div>
+
+        <br>
+
+    </div>
+
+    <button class="btn btn-outline-primary btn-sm float-left" (click)="previous(_id)" [hidden]="_id == 1">
+        Previous Song
+    </button>
+
+    <button class="btn btn-outline-primary btn-sm float-right" (click)="next(_id)" [hidden]="_id == playLists.length">
+        Next Song
+    </button>
+</div>
