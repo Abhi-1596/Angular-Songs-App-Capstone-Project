@@ -20,4 +20,8 @@ export class SongsService {
     return this.http.post<ISongsListModel> (this.api_url, data);
   }
 
+  deleteSong(data) {
+    return this.http.delete (this.api_url, data);
+  }
+
 }
